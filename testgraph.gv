@@ -1,0 +1,9 @@
+digraph {
+	A [label=top]
+	B [label=this]
+	C [label=that]
+	D [label=other]
+	A -> B
+	B -> C
+	B -> D
+}

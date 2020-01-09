@@ -1,0 +1,9 @@
+// nondigraph
+graph {
+	A [label=this]
+	B [label=that]
+	C [label=other]
+	A -- B
+	A -- C
+	B -- C
+}

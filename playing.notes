@@ -1,0 +1,45 @@
+coffee@coffee-X395:~$ python3
+Python 3.7.3 (default, Oct  7 2019, 12:56:13) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import graphviz as gv
+>>> dot = gv.Digraph(comment='testgraph')
+>>> dot.node('A','top')
+>>> dot.node('B','this')
+>>> dot.node('C','that')
+>>> dot.node('D','other')
+>>> dot.edges(['AB','BC','BD'])
+>>> print(dot.source)
+// testgraph
+digraph {
+	A [label=top]
+	B [label=this]
+	C [label=that]
+	D [label=other]
+	A -> B
+	B -> C
+	B -> D
+}
+>>> dot.render('testgraph.gv')
+'testgraph.gv.pdf'
+>>> newdot = gv.Graph(comment='nondigraph')
+>>> newdot.node('A','this')
+>>> newdot.node('B','that')
+>>> newdot.node('C','other')
+>>> newdot.edges(['AB','AC','BC'])
+>>> print(newdot.source)
+// nondigraph
+graph {
+	A [label=this]
+	B [label=that]
+	C [label=other]
+	A -- B
+	A -- C
+	B -- C
+}
+>>> dot.render('testgraph.gv')
+'testgraph.gv.pdf'
+>>> file = open('testgraph.dot','w')
+>>> print(newdot.source,file=file)
+>>> file.close()
+

@@ -1,0 +1,14 @@
+// nondigraph
+graph {
+	0 [label=top]
+	10 [label=""]
+	x [label=x]
+	y [label=y]
+	z [label=z]
+	10 [label=end]
+	0 -- x
+	x -- {y,z} //[constraint=false]
+	y -- z [constraint=false]
+	z -- 10
+	0 -- 10
+}
